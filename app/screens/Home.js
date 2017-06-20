@@ -5,11 +5,14 @@ import { Container } from '../components/Container'
 import { Logo } from '../components/Logo'
 import { InputWithButton } from '../components/TextInput'
 import { ClearButton } from '../components/Buttons'
+import { LastConverted } from '../components/Text'
 
 const TEMP_BASE_CURRENCY = 'USD'
-const TEMP_QUOTE_CURRENCY = 'GBP'
-const TEMP_BASE_PRICE = '100'
-const TEMP_QUOTE_PRICE = '450'
+const TEMP_QUOTE_CURRENCY = 'IDR'
+const TEMP_BASE_PRICE = '1000'
+const TEMP_QUOTE_PRICE = '13299000'
+const TEMP_CONVERSION_RATE = 13299
+const TEMP_CONVERSION_DATE = new Date()
 
 class Home extends React.Component {
   handlePressBaseCurrency () {
@@ -42,6 +45,12 @@ class Home extends React.Component {
           editable={false}
           defaultValue={TEMP_QUOTE_PRICE}
           keyboardType='numeric'
+        />
+        <LastConverted
+          base={TEMP_BASE_CURRENCY}
+          quote={TEMP_QUOTE_CURRENCY}
+          date={TEMP_CONVERSION_DATE}
+          conversionRate={TEMP_CONVERSION_RATE}
         />
         <ClearButton
           text='Reverse Currencies'
